@@ -3,6 +3,7 @@ package frc.robot;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix6.hardware.TalonFX;
 
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 
@@ -12,6 +13,7 @@ public class DriveTrain extends SubsystemBase {
     public TalonFX leftMotor = new TalonFX(6);
 
 
+    private DifferentialDrive m_diffDrive = new DifferentialDrive(leftMotor, rightMotor);
     // public void driveAuto(double target) {
     //     rightMotor.set(ControlMode.Velocity, 0);
     //     leftMotor.set(ControlMode.Velocity, 0);
@@ -22,8 +24,11 @@ public class DriveTrain extends SubsystemBase {
     // }
 
     public void driveTeleopTank(double powerRight, double powerLeft) {
-        rightMotor.set(powerRight);
-        leftMotor.set(powerLeft);
+        //System.out.println("right: "+powerRight + "    left: "+powerLeft);
+
+        m_diffDrive.arcadeDrive(powerLeft,powerRight , false);
+        //  rightMotor.set(powerRight);
+        //  leftMotor.set(powerLeft);
 
     }
 }

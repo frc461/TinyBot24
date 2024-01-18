@@ -1,7 +1,7 @@
 package frc.robot;
 
 public class Subsystems {
-    private static DriveTrain drivetrain;
+    private static DriveTrain drivetrain = new DriveTrain();
     private static Arm arm;
     
     public static DriveTrain getDriveTrain() {

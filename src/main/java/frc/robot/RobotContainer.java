@@ -8,6 +8,7 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -50,11 +51,11 @@ public class RobotContainer {
    */
   private void configureBindings() {
 
-    train.driveTeleopTank(.1, .1);
+    train.driveTeleopTank(m_driverController.getRawAxis(XboxController.Axis.kLeftY.value), m_driverController.getRawAxis(XboxController.Axis.kLeftY.value));
 
 
 
-    train.leftMotor.set(0.1);
+    //train.leftMotor.set(0.1);
 
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     new Trigger(m_exampleSubsystem::exampleCondition)
